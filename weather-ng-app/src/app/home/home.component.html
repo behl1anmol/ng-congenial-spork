@@ -1,0 +1,5 @@
+<h4>Get Quotes</h4>
+<button (click)="getQuotes()">Get Quotes</button>
+@for(quote of quotes(); track quote.id){
+    <p>"{{quote.quote}}" - {{quote.author}}</p>
+}
