@@ -1,1 +1,15 @@
-<p>todos works!</p>
+<h3>Todos List</h3>
+
+<!--this is a structural directive, this stays in dom till the condition is true after that is removed from dom-->
+<!-- this was done in past which used ngIf: <p *ngIf="todoItems().length === 0">Loading... </p>  -->
+ @if(todoItems().length === 0) {
+    <p>Loading... </p>
+ }
+
+<ul class="todos">
+    @for (todo of todoItems(); track todo.id) { <!--track on the basis of todo.id which is unique -->
+        <app-todo-item (todoToggled)="updateTodoItem($event)" [todo]="todo"></app-todo-item>
+    }
+</ul>
+
+
